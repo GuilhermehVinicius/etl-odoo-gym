@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 # Função para salvar DataFrame no banco de dados
 def save_to_db(df, table_name):
     try:
-        df.to_sql(table_name, con=engine_dw, if_exists="replace", index=False)
+        df.to_sql(table_name, con=engine_dw, if_exists = 'append', index=False)
         print(f"Tabela '{table_name}' salva com sucesso!")
     except Exception as e:
         print(f"Erro ao salvar a tabela '{table_name}': {e}")
@@ -17,7 +17,7 @@ def query_and_save(table_name, query):
         df = pd.read_sql_query(query, engine_odoo)
 
         if table_name == "fPipelineCRM":
-            df['interest'] = df['interest'].apply(extract_list_items)
+            df['Interest'] = df['Interest'].apply(extract_list_items)
             
         save_to_db(df, table_name)
     except Exception as e:

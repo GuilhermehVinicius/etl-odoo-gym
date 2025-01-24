@@ -1,5 +1,6 @@
 # Consultas SQL
 QUERIES = {
+    
     "dProducts": """
         SELECT 
             id AS "idProducts",
@@ -29,17 +30,18 @@ QUERIES = {
     """,
     "fPipelineCRM": """
         SELECT 
-            cl.id AS idCrm,
-            cl.date_open::DATE AS DateOpen,
-            cl.partner_id AS idContacts,
-            cl.stage_id AS idStage,
-            cl.priority AS idPriority,
-            cl.date_closed::DATE AS DateClosed,
-            cl.lost_reason_id AS idLoss,
-            cl.description AS Interest,
-            so.currency_rate AS qtd_people,
-            so.amount_total AS value
+            cl.id AS "idCrm",
+            cl.date_open::DATE AS "DateOpen",
+            cl.partner_id AS "idContacts",
+            cl.stage_id AS "idStage",
+            cl.priority AS "idPriority",
+            cl.date_closed::DATE AS "DateClosed",
+            cl.lost_reason_id AS "idLoss",
+            cl.description AS "Interest",
+            so.currency_rate AS "QtdPeople",
+            so.amount_total AS "Value"
         FROM crm_lead cl 
         LEFT JOIN sale_order so ON so.opportunity_id = cl.id;
     """,
+    
 }
