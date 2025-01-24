@@ -52,6 +52,20 @@ class dCalender(Base):
     Day = Column(Integer)
     WeekDay = Column(String(100))
     crm = relationship("fPipelineCRM", back_populates="dCalender")
+    wellhub = relationship("fPipelineCRM", back_populates="dCalender")
+
+class dGymWellhub(Base):
+    __tablename__ = 'dGymWellhub'
+    dGym = Column(Integer, primary_key=True)
+    Date = Column(Date, ForeignKey("dCalender.Date"), nullable=False)
+    Name = Column(String(500))
+    Address = Column(String(500))
+    Services = Column(String(500))
+    Comorbidities = Column(String(500))
+    BasePlan = Column(String(500))
+    ValuePlan = Column(Float)
+
+    dCalender = relationship("dCalender", back_populates="wellhub")
 
 
 class fPipelineCRM(Base):
