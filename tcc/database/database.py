@@ -56,7 +56,7 @@ class dCalender(Base):
 
 class dGymWellhub(Base):
     __tablename__ = 'dGymWellhub'
-    dGym = Column(Integer, primary_key=True)
+    idGym = Column(Integer, autoincrement=True, primary_key=True)
     Date = Column(Date, ForeignKey("dCalender.Date"), nullable=False)
     Name = Column(String(500))
     Address = Column(String(500))

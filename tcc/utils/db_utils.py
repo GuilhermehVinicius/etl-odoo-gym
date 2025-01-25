@@ -29,3 +29,7 @@ def extract_list_items(html):
     
     soup = BeautifulSoup(html, 'html.parser')
     return ', '.join([li.text for li in soup.find_all('li')])
+
+
+
+

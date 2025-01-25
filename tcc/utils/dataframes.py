@@ -18,8 +18,12 @@ dCalender = pd.DataFrame({
     "WeekDay": datas.strftime("%A").str.capitalize(),
 })
 
+dGymWellhub = pd.read_csv('/home/gui/scraping-wellhub/wellhub/gyms_franca_wellhub.csv',sep=',')
+dGymWellhub.columns = ['Name' , 'BasePlan', 'Address', 'Services', 'Comorbidities', 'ValuePlan', 'Date']
+
 # Processamento das tabelas estáticas
 STATIC_TABLES = {
     "dPriority": dPriority,
     "dCalender": dCalender,
+    "dGymWellhub" : dGymWellhub
 }
